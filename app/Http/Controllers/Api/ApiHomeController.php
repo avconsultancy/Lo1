@@ -27,13 +27,17 @@ class ApiHomeController extends Controller
     public function index()
     {
         $obj = new stdClass();
-        $obj->message = "Hello2 World";
+        $obj->message = "Hello World";
         return response()->json($obj);
     }
     public function sayHello($name)
     {
         $obj = new stdClass();
-        $obj->message = "Hello1 " . $name;
+        if ($name == "pankaj") {
+            $obj->message = "Hello Backend Developer: " . $name;
+        } else {
+            $obj->message = "Hello Frontend Developer: " . $name;
+        }
         return response()->json($obj);
     }
     public function multiply(MultiplyTwoNumbersRequest $request)
