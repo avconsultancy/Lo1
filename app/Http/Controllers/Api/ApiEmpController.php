@@ -58,6 +58,7 @@ public function getUserList()
 
 
         public function deleteUser($email)
+
     {
         // $data = $request->validated();
         // // $name = $data["name"];
@@ -66,7 +67,11 @@ public function getUserList()
         if (!$existingRecord) {
             $errorObject = new stdClass();
             $errorObject->message = "Validation Error";
-            $errorObject->errors = [
+
+            $errorObject->errors =
+            [
+
+
                 "email" => ['User Is Not Found']
             ];
 
@@ -79,7 +84,9 @@ public function getUserList()
 
             );
         }
-        $record = $this->empRepo->delete($existingRecord->id );
+
+        $record = $this->empRepo->delete($existingRecord->id);
+
         return response()->json($record);
     }
 
