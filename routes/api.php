@@ -1,10 +1,13 @@
 <?php
 
+
 use App\Http\Controllers\api\ApiStudentController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiEmpController;
 use App\Http\Controllers\Api\ApiHomeController;
 use App\Http\Middleware\Cors;
+
 Route::get("/", [ApiHomeController::class, "index"])->middleware(Cors::class);
 
 Route::get("/hello/{name}", [ApiHomeController::class, "sayHello"]);
@@ -18,5 +21,7 @@ Route::get("/empList", [ApiEmpController::class, "getUserList"]);
 Route::delete("/removeEmp/{email}", [ApiEmpController::class, "deleteUser"]);
 
 
+
 //student's data
 Route::post("/student", [ApiStudentController::class, "store"]);
+

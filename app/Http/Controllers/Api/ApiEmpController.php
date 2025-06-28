@@ -50,14 +50,15 @@ class ApiEmpController extends Controller
     }
 
 
-    public function getUserList()
-    {
-        $getRecords = $this->empRepo->find();
-        return response()->json($getRecords);
-    }
+public function getUserList()
+{
+    $getRecords = $this->empRepo->find();
+    return response()->json($getRecords);
+}
 
 
-    public function deleteUser($email)
+        public function deleteUser($email)
+
     {
         // $data = $request->validated();
         // // $name = $data["name"];
@@ -66,8 +67,10 @@ class ApiEmpController extends Controller
         if (!$existingRecord) {
             $errorObject = new stdClass();
             $errorObject->message = "Validation Error";
+
             $errorObject->errors =
             [
+
 
                 "email" => ['User Is Not Found']
             ];
@@ -81,7 +84,9 @@ class ApiEmpController extends Controller
 
             );
         }
+
         $record = $this->empRepo->delete($existingRecord->id);
+
         return response()->json($record);
     }
 
